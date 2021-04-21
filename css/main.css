@@ -1,0 +1,30 @@
+body {
+  border: 1px solid black;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+main {
+  border: 1px solid black;
+}
+
+.canvas-area {
+  width: 640px;
+  height: 640px;
+  border: 1px solid black;
+}
+
+.palette {
+  border: 1px solid black;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.save-load {
+  border: 1px solid black;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
