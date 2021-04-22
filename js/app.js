@@ -1,4 +1,4 @@
-'use strict'
+'use strict';
 
 class App {
   constructor() {
@@ -65,10 +65,6 @@ class App {
         if (event.target.readyState === FileReader.DONE) {
           let img = new Image();
           img.src = event.target.result;
-
-          //const targetHeight = canvas.height / img.height;
-          //const targetWidth = canvas.width / img.width;
-
           img.onload = () => {
             this.ctx.drawImage(img, 0, 0, img.width, img.height, 0, 0, this.canvas.width, this.canvas.height);
           }
