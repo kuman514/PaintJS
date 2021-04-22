@@ -7,6 +7,7 @@
     <title>간단한 그림판</title>
 
     <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/palette.css">
   </head>
   <body>
     <main>
@@ -15,7 +16,13 @@
       </div>
       <div class="palette" onclick="">
         <!-- 크기 조절 막대 -->
+        <div class="point-size">
+          <input type="range" min="1" max="15" value="8" class="slider" id="myRange">
+        </div>
         <!-- 색상 선택 -->
+        <div class="colors">
+          <input type="color" class="html5colorpicker" value="#000000">
+        </div>
       </div>
       <div class="save-load">
         <button>저장</button>
