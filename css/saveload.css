@@ -1,0 +1,14 @@
+.save-load > button {
+  all: unset;
+  padding: 10px;
+  margin: 5px;
+  background-color: #20cc20;
+  border-radius: 8px;
+  transition: 100ms linear;
+  border: solid gray 1px;
+}
+
+.save-load > button:hover {
+  background-color: #60ff60;
+  cursor: pointer;
+}

@@ -1,7 +1,23 @@
-.point-size {
-  display: block;
+.palette > input {
+  margin: 10px;
 }
 
-#color-picker {
+.palette > input[type=range] {
+  width: 200px;
+}
+
+.palette > input[type=color] {
+  all: unset;
   width: 100px;
+  height: 30px;
+  background-color: #aaaaaa;
+  padding: 5px;
+  border-radius: 8px;
+  transition: 100ms linear;
+  border: solid gray 1px;
+}
+
+.palette > input[type=color]:hover {
+  background-color: #dddddd;
+  cursor: pointer;
 }
