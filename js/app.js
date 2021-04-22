@@ -13,16 +13,25 @@ class App {
 
     this.ctx = this.canvas.getContext('2d');
     this.ctx.fillStyle = this.pointColor;
+
+    this.palette = document.querySelector('.palette');
+    this.palette.addEventListener('change', this.changePoint)
   }
   drawPoint = (event) => {
     if (this.click) {
       this.ctx.fillRect(event.layerX, event.layerY, this.pointSize, this.pointSize);
     }
   }
-  changePoint = (pointSize, pointColor) => {
-    this.pointSize = pointSize;
-    this.pointColor = pointColor;
-
+  changePoint = (event) => {
+    console.log(event.target.id);
+    switch (event.target.id) {
+      case 'color-range':
+        this.pointSize = Number(event.target.value);
+        break;
+      case 'color-picker':
+        this.pointColor = event.target.value;
+        break;
+    }
     this.ctx.fillStyle = this.pointColor;
   }
   mouseDown = () => {

@@ -18,14 +18,14 @@
         <!-- 그림판 -->
         <canvas id="current-canvas" width="640px" height="640px"></canvas>
       </div>
-      <div class="palette" onclick="">
+      <div class="palette">
         <!-- 크기 조절 막대 -->
         <div class="point-size">
-          <input type="range" min="1" max="15" value="8" class="slider" id="color-range">
+          <input type="range" id="color-range" min="1" max="15" value="8" class="slider">
         </div>
         <!-- 색상 선택 -->
         <div class="colors">
-          <input type="color" class="color-picker" value="#000000">
+          <input type="color" id="color-picker" value="#000000">
         </div>
       </div>
       <div class="save-load">
