@@ -8,21 +8,24 @@
 
     <link rel="stylesheet" href="css/main.css">
     <link rel="stylesheet" href="css/palette.css">
+    <link rel="stylesheet" href="css/canvas.css">
+
+    <script src="js/app.js"></script>
   </head>
   <body>
     <main>
       <div class="canvas-area">
         <!-- 그림판 -->
-        <canvas id="current-canvas"></canvas>
+        <canvas id="current-canvas" width="640px" height="640px"></canvas>
       </div>
       <div class="palette" onclick="">
         <!-- 크기 조절 막대 -->
         <div class="point-size">
-          <input type="range" min="1" max="15" value="8" class="slider" id="myRange">
+          <input type="range" min="1" max="15" value="8" class="slider" id="color-range">
         </div>
         <!-- 색상 선택 -->
         <div class="colors">
-          <input type="color" class="html5colorpicker" value="#000000">
+          <input type="color" class="color-picker" value="#000000">
         </div>
       </div>
       <div class="save-load">
