@@ -23,7 +23,9 @@ class App {
 
   drawPoint = (event) => {
     if (this.click) {
-      this.ctx.fillRect(event.layerX, event.layerY, this.pointSize, this.pointSize);
+      this.ctx.beginPath();
+      this.ctx.arc(event.layerX, event.layerY, this.pointSize / 2, 0, Math.PI * 2, false);
+      this.ctx.fill();
     }
   }
   changePoint = (event) => {
