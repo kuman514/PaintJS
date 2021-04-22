@@ -6,7 +6,7 @@ class App {
     this.pointColor = '#000000';
     this.click = false;
 
-    this.canvas = document.getElementById('current-canvas')
+    this.canvas = document.getElementById('current-canvas');
     this.canvas.addEventListener('mousemove', this.drawPoint);
     this.canvas.addEventListener('mousedown', this.mouseDown);
     this.canvas.addEventListener('mouseup', this.mouseUp);
@@ -15,15 +15,17 @@ class App {
     this.ctx.fillStyle = this.pointColor;
 
     this.palette = document.querySelector('.palette');
-    this.palette.addEventListener('change', this.changePoint)
+    this.palette.addEventListener('change', this.changePoint);
+
+    document.getElementById('save').addEventListener('click', this.saveToPNG);
   }
+
   drawPoint = (event) => {
     if (this.click) {
       this.ctx.fillRect(event.layerX, event.layerY, this.pointSize, this.pointSize);
     }
   }
   changePoint = (event) => {
-    console.log(event.target.id);
     switch (event.target.id) {
       case 'color-range':
         this.pointSize = Number(event.target.value);
@@ -39,6 +41,14 @@ class App {
   }
   mouseUp = () => {
     this.click = false;
+  }
+
+  saveToPNG = () => {
+    const url = this.canvas.toDataURL('png');
+    let fileTarget = document.createElement('a');
+    fileTarget.setAttribute('href', url);
+    fileTarget.setAttribute('download', 'save.png');
+    fileTarget.click();
   }
 }
 
