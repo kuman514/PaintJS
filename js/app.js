@@ -18,6 +18,7 @@ class App {
     this.palette.addEventListener('change', this.changePoint);
 
     document.getElementById('save').addEventListener('click', this.saveToPNG);
+    document.getElementById('load').addEventListener('click', this.loadImg);
   }
 
   drawPoint = (event) => {
@@ -48,6 +49,26 @@ class App {
     let fileTarget = document.createElement('a');
     fileTarget.setAttribute('href', url);
     fileTarget.setAttribute('download', 'save.png');
+    fileTarget.click();
+  }
+  loadImg = () => {
+    let fileTarget = document.createElement('input');
+    fileTarget.type = 'file';
+    fileTarget.accept = 'image/png, image/jpeg';
+    fileTarget.addEventListener('change', (e) => {
+      let file = e.target.files[0];
+      let reader = new FileReader();
+      reader.readAsDataURL(file);
+      reader.onload = (event) => {
+        if (event.target.readyState === FileReader.DONE) {
+          let img = new Image();
+          img.src = event.target.result;
+          img.onload = () => {
+            this.ctx.drawImage(img, 0, 0);
+          }
+        }
+      }
+    });
     fileTarget.click();
   }
 }
