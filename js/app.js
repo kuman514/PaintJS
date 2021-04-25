@@ -2,21 +2,29 @@
 
 class App {
   constructor() {
+    // point
     this.pointSize = 8;
     this.pointColor = '#000000';
     this.click = false;
+    this.prevCoord = [0, 0];
 
+    // canvas
     this.canvas = document.getElementById('current-canvas');
     this.canvas.addEventListener('mousemove', this.drawPoint);
     this.canvas.addEventListener('mousedown', this.mouseDown);
     this.canvas.addEventListener('mouseup', this.mouseUp);
-
     this.ctx = this.canvas.getContext('2d');
-    this.ctx.fillStyle = this.pointColor;
 
+    // canvas context
+    this.ctx.fillStyle = this.pointColor;
+    this.ctx.lineWidth = this.pointSize;
+    this.ctx.strokeStyle = this.pointColor;
+
+    // palette
     this.palette = document.querySelector('.palette');
     this.palette.addEventListener('change', this.changePoint);
 
+    // save & load
     document.getElementById('save').addEventListener('click', this.saveToPNG);
     document.getElementById('load').addEventListener('click', this.loadImg);
   }
@@ -26,7 +34,14 @@ class App {
       this.ctx.beginPath();
       this.ctx.arc(event.layerX, event.layerY, this.pointSize / 2, 0, Math.PI * 2, false);
       this.ctx.fill();
+
+      this.ctx.beginPath();
+      this.ctx.moveTo(this.prevCoord[0], this.prevCoord[1]);
+      this.ctx.lineTo(event.layerX, event.layerY);
+      this.ctx.stroke();
     }
+
+    this.prevCoord = [event.layerX, event.layerY];
   }
   changePoint = (event) => {
     switch (event.target.id) {
@@ -38,6 +53,8 @@ class App {
         break;
     }
     this.ctx.fillStyle = this.pointColor;
+    this.ctx.lineWidth = this.pointSize;
+    this.ctx.strokeStyle = this.pointColor;
   }
   mouseDown = () => {
     this.click = true;
