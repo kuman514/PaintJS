@@ -7,6 +7,7 @@ class App {
     this.pointColor = '#000000';
     this.click = false;
     this.prevCoord = [0, 0];
+    this.erase = false;
 
     // canvas
     this.canvas = document.getElementById('current-canvas');
@@ -32,6 +33,12 @@ class App {
 
   drawPoint = (event) => {
     if (this.click) {
+      if (this.erase) {
+        this.ctx.globalCompositeOperation = 'destination-out';
+      } else {
+        this.ctx.globalCompositeOperation = 'source-over';
+      }
+
       this.ctx.beginPath();
       this.ctx.arc(event.layerX, event.layerY, this.pointSize / 2, 0, Math.PI * 2, false);
       this.ctx.fill();
@@ -51,6 +58,12 @@ class App {
         break;
       case 'color-picker':
         this.pointColor = event.target.value;
+        break;
+      case 'draw':
+        this.erase = false;
+        break;
+      case 'erase':
+        this.erase = true;
         break;
     }
     this.ctx.fillStyle = this.pointColor;
