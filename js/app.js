@@ -27,6 +27,7 @@ class App {
     // save & load
     document.getElementById('save').addEventListener('click', this.saveToPNG);
     document.getElementById('load').addEventListener('click', this.loadImg);
+    document.getElementById('clear').addEventListener('click', this.clear);
   }
 
   drawPoint = (event) => {
@@ -89,6 +90,9 @@ class App {
       }
     });
     fileTarget.click();
+  }
+  clear = () => {
+    this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
   }
 }
 
