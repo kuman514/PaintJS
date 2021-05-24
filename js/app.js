@@ -8,6 +8,8 @@ class App {
     this.click = false;
     this.prevCoord = [0, 0];
     this.erase = false;
+    this.pointSizeLabel = document.getElementById('current-size');
+    this.pointSizeLabel.textContent = this.pointSize.toFixed(2);
 
     // canvas
     this.canvas = document.getElementById('current-canvas');
@@ -55,6 +57,7 @@ class App {
     switch (event.target.id) {
       case 'color-range':
         this.pointSize = Number(event.target.value);
+        this.pointSizeLabel.textContent = this.pointSize.toFixed(2);
         break;
       case 'color-picker':
         this.pointColor = event.target.value;
