@@ -16,6 +16,7 @@ class App {
     this.canvas.addEventListener('mousemove', this.drawPoint);
     this.canvas.addEventListener('mousedown', this.mouseDown);
     this.canvas.addEventListener('mouseup', this.mouseUp);
+    this.canvas.addEventListener('mouseout', this.mouseUp);
     this.ctx = this.canvas.getContext('2d');
 
     // canvas context
