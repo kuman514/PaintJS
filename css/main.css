@@ -6,6 +6,9 @@ body {
 
 .canvas-area {
   margin: 10px;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
 }
 
 .palette {
