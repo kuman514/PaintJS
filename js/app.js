@@ -24,9 +24,7 @@ class App {
     this.canvasResize.addEventListener('change', this.resize);
 
     // canvas context
-    this.ctx.fillStyle = this.pointColor;
-    this.ctx.lineWidth = this.pointSize;
-    this.ctx.strokeStyle = this.pointColor;
+    this.setContext();
 
     // palette
     this.palette = document.querySelector('.palette');
@@ -74,6 +72,9 @@ class App {
         this.erase = true;
         break;
     }
+    this.setContext();
+  }
+  setContext = () => {
     this.ctx.fillStyle = this.pointColor;
     this.ctx.lineWidth = this.pointSize;
     this.ctx.strokeStyle = this.pointColor;
@@ -125,6 +126,7 @@ class App {
         this.canvas.height = event.target.value;
         break;
     }
+    this.setContext();
   }
 }
 
