@@ -19,6 +19,10 @@ class App {
     this.canvas.addEventListener('mouseout', this.mouseUp);
     this.ctx = this.canvas.getContext('2d');
 
+    // canvas resizer
+    this.canvasResize = document.querySelector('.canvas-resize');
+    this.canvasResize.addEventListener('change', this.resize);
+
     // canvas context
     this.ctx.fillStyle = this.pointColor;
     this.ctx.lineWidth = this.pointSize;
@@ -110,6 +114,17 @@ class App {
   }
   clear = () => {
     this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
+  }
+
+  resize = (event) => {
+    switch (event.target.id) {
+      case 'x-size':
+        this.canvas.width = event.target.value;
+        break;
+      case 'y-size':
+        this.canvas.height = event.target.value;
+        break;
+    }
   }
 }
 
